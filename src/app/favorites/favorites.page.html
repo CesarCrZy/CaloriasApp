@@ -1,0 +1,37 @@
+<ion-header>
+    <ion-toolbar color="success">
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Mis Comidas</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <p>
+        Agrega tus comidas del dia
+    </p>
+    <ion-grid>
+        <ion-row>
+            <ion-col *ngFor="let favorite of favoritesList$ | async" col-6 no-padding>
+                <ion-card>
+                    <ion-card-header>
+                        <ion-label>Comida: {{favorite.nombre}}</ion-label>
+                    </ion-card-header>
+                    <ion-card-content>
+                        <ion-label style="display: inline-block;">Calorias: {{favorite.Calorias}}</ion-label>
+                        <ion-label style="display: inline-block;">Proteinas: {{favorite.proteinas}}</ion-label>
+                        <ion-label style="display: inline-block;">Grasas: {{favorite.grasas}}</ion-label>
+                        <ion-label style="display: inline-block;">Carbohidratos: {{favorite.carbohidratos}}</ion-label>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button (click)="OnNew()">
+            <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+</ion-content>

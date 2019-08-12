@@ -1,0 +1,48 @@
+<ion-header>
+    <ion-toolbar color="success">
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Objetivo de Macronutrientes</ion-title>
+    </ion-toolbar>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</ion-header>
+
+<ion-content>
+    <ion-item>
+        <form>
+            <label>Calorias</label>
+            <ion-icon slot="primary" src="../../assets/imgs/calorias.svg"></ion-icon>
+            <meter text="text" id="calorias" min="0" max="0" low="" high="" optimum="0" value="0">
+                <label>Hola</label>
+            </meter>
+        </form>
+    </ion-item>
+    <ion-item>
+        <form>
+            <label>Proteinas</label>
+            <ion-icon slot="start" src="../../assets/imgs/proteina.svg"></ion-icon>
+            <meter id="proteinas" min="0" max="0" low="" high="" optimum="0" value="0">
+
+            </meter>
+        </form>
+    </ion-item>
+    <ion-item>
+        <form>
+            <label>Grasas</label>
+            <ion-icon slot="start" src="../../assets/imgs/tocino.svg"></ion-icon>
+            <meter text="hola" id="grasas" min="0" max="0" low="" high="" optimum="0" value="0">
+
+            </meter>
+        </form>
+    </ion-item>
+    <ion-item>
+        <form>
+            <label>Carbohidratos</label>
+            <ion-icon slot="start" src="../../assets/imgs/recom.svg"></ion-icon>
+            <meter id="carbohidratos" min="0" max="0" low="" high="" optimum="0" value="0">
+
+            </meter>
+        </form>
+    </ion-item>
+</ion-content>

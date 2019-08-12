@@ -1,0 +1,42 @@
+<ion-header>
+    <ion-toolbar color="success">
+        <ion-title>Insertar Comida</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <p>
+        ¿Que has consumido el dia de hoy?
+    </p>
+    <ion-list>
+        <ion-item>
+            <ion-label fixed>Nombre</ion-label>
+            <ion-input type="text" [(ngModel)]="comida.nombre" required></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label fixed>Calorias</ion-label>
+            <ion-input type="number" [(ngModel)]="comida.Calorias" required></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label fixed>Proteinas</ion-label>
+            <ion-input type="number" [(ngModel)]="comida.proteinas" required></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label fixed>Grasas</ion-label>
+            <ion-input type="number" [(ngModel)]="comida.grasas" required></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label fixed>Carbohidratos</ion-label>
+            <ion-input type="number" [(ngModel)]="comida.carbohidratos" required></ion-input>
+        </ion-item>
+
+
+
+
+
+        <ion-item>
+            <ion-button default color="primary" (click)="OnSave(comida)">Guardar</ion-button>
+            <ion-button default color="danger" (click)="OnClose()">Cerrar</ion-button>
+        </ion-item>
+    </ion-list>
+</ion-content>
