@@ -84,6 +84,8 @@ export class RegisterInfoPage implements OnInit {
   }
 
   Insertar(userInfo: UserInfoBD, table: Table, macros: Macros) {
+    userInfo.email = this.email;
+    this.userInfo.email = this.email;
     console.log(userInfo.key);
     if (userInfo.genero === "Hombre") {
       this.BMR =
@@ -191,7 +193,7 @@ export class RegisterInfoPage implements OnInit {
       this.favoritesService.AddUserMacros(this.macros, this.uid);
       this.favoritesService.AddTable(this.table, this.uid);
       console.log(this.uid);
-      this.router.navigate(["/menu"]);
+      this.router.navigate(["/menu/ayuda"]);
     }
   }
 

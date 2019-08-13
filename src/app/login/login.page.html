@@ -7,12 +7,12 @@
 <ion-content>
     <ion-item>
         <ion-label floating>Correo Electronico</ion-label>
-        <ion-input type="text" [(ngModel)]="user.email"></ion-input>
+        <ion-input id="email" type="text" [(ngModel)]="user.email"></ion-input>
     </ion-item>
 
     <ion-item>
         <ion-label floating>Contraseña</ion-label>
-        <ion-input type="password" [(ngModel)]="user.password"></ion-input>
+        <ion-input id="password" type="password" [(ngModel)]="user.password"></ion-input>
     </ion-item>
 
     <ion-button (click)="login(user)">Login</ion-button>

@@ -2,6 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { AngularFireAuth } from "angularfire2/auth";
 import { User } from "../modelos/user";
 import { NavController, NavParams, ModalController } from "@ionic/angular";
+import * as $ from "jquery";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-login",
@@ -12,7 +14,8 @@ export class LoginPage implements OnInit {
   constructor(
     private ofauth: AngularFireAuth,
     public navCtrl: NavController,
-    public modalCtrl: ModalController
+    public modalCtrl: ModalController,
+    private routers: Router
   ) {}
   user = {} as User;
 
@@ -24,12 +27,15 @@ export class LoginPage implements OnInit {
       );
       console.log(result);
       if (result) {
-        this.navCtrl.navigateForward("/bienvenida");
+        this.routers.navigateByUrl("/menu/ayuda");
+      } else {
+        this.navCtrl.navigateForward("/login");
       }
-    } catch (e) {
-      console.error(e);
-    }
+    } catch (e) {}
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    $("#email").text("");
+    $("#password").text("");
+  }
 }

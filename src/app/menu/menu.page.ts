@@ -1,16 +1,10 @@
 import { Component, OnInit } from "@angular/core";
 import { Router, RouterEvent } from "@angular/router";
 import { AngularFireAuth } from "angularfire2/auth";
-import {
-  ToastController,
-  NavController,
-  ModalController
-} from "@ionic/angular";
 import { FavoritesService } from "../favorites/favorites.service";
 import { Comida } from "../modelos/comida";
 import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { FavoritesModalPage } from "../favorites-modal/favorites-modal.page";
+import { NavController } from "@ionic/angular";
 
 @Component({
   selector: "app-menu",
@@ -45,11 +39,19 @@ export class MenuPage implements OnInit {
   ];
 
   selectedPath = "";
-  constructor(private routers: Router) {
+  constructor(
+    private routers: Router,
+    private ofauth: AngularFireAuth,
+    public navCtrl: NavController
+  ) {
     this.routers.events.subscribe((event: RouterEvent) => {
       this.selectedPath = event.url;
     });
   }
 
   ngOnInit() {}
+
+  salir() {
+    this.routers.navigateByUrl("/login");
+  }
 }

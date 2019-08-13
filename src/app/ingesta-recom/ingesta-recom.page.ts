@@ -51,6 +51,24 @@ export class IngestaRecomPage implements OnInit {
       if (data && data.email && data.uid) {
         this.uid = data.uid;
         this.comida.uid = data.uid;
+
+        this.favoritesList$ = this.favoritesService
+          .GetRecomdacion(this.uid)
+          .snapshotChanges()
+          .pipe(
+            map(changes => {
+              return changes.map(c => ({
+                key: c.payload.key,
+                ...c.payload.val()
+              }));
+            })
+          );
+        this.favoritesList$.subscribe(val => {
+          console.log(val);
+          if (val.length == 0) {
+            this.navCtrl.navigateForward("/register-info");
+          }
+        });
       }
 
       var cal = [];
@@ -107,19 +125,19 @@ export class IngestaRecomPage implements OnInit {
           .attr("optimum", this.calo)
           .attr("low", callow)
           .attr("high", calhigh);
-          $("#proteinas")
+        $("#proteinas")
           .attr("max", this.prote)
           .attr("optimum", this.prote)
           .attr("low", protelow)
           .attr("high", protehigh);
 
-          $("#grasas")
+        $("#grasas")
           .attr("max", this.grasas)
           .attr("optimum", this.grasas)
           .attr("low", grasaslow)
           .attr("high", grasashigh);
 
-          $("#carbohidratos")
+        $("#carbohidratos")
           .attr("max", this.carbos)
           .attr("optimum", this.carbos)
           .attr("low", carbolow)
