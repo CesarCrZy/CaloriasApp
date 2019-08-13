@@ -13,6 +13,8 @@ import { Macros } from "../modelos/macros";
   templateUrl: "./register-info.page.html",
   styleUrls: ["./register-info.page.scss"]
 })
+
+//Se declaran las propiedades de registro del usuario
 export class RegisterInfoPage implements OnInit {
   private favoritesService: FavoritesService;
 
@@ -65,24 +67,28 @@ export class RegisterInfoPage implements OnInit {
     this.favoritesService = _favoritesService;
   }
 
+  //Se obtiene el genero del usuario
   getGenero(genero: string) {
     console.log(genero);
     this.generoText = genero;
     this.userInfo.genero = genero;
   }
 
+  //Se obtiene el objetivo del usuario
   getObjetivo(objetivo: string) {
     console.log(objetivo);
     this.objetivoText = objetivo;
     this.userInfo.objetivo = objetivo;
   }
 
+  //Se obtiene el nivel de actividad fisica del usuario
   getActividad(actividad: string) {
     console.log(actividad);
     this.actividadText = actividad;
     this.userInfo.actividad = actividad;
   }
 
+  //Se insertan las propiedades que ingresa el usuario en la base de datos
   Insertar(userInfo: UserInfoBD, table: Table, macros: Macros) {
     userInfo.email = this.email;
     this.userInfo.email = this.email;

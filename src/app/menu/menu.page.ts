@@ -15,6 +15,7 @@ export class MenuPage implements OnInit {
   private favoritesService: FavoritesService;
   favoritesList$: Observable<Comida[]>;
 
+  //Array de objetos con las paginas
   pages = [
     {
       title: "Objetivo de Macros",
@@ -51,6 +52,7 @@ export class MenuPage implements OnInit {
 
   ngOnInit() {}
 
+  //Al cerrar sesion redirige al login
   salir() {
     this.routers.navigateByUrl("/login");
   }

@@ -21,6 +21,8 @@ export class CalculosPage implements OnInit {
     this.favoritesService = _favoritesService;
   }
 
+  //Al iniciar la instancia se hace una llamada asincrona a la base de datos para obtener
+  //comidas del usuario
   ngOnInit() {
     this.ofauth.authState.subscribe(async data => {
       if (data && data.email && data.uid) {

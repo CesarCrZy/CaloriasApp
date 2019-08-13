@@ -17,6 +17,7 @@ import { Macros } from "../modelos/macros";
   templateUrl: "./reporte.page.html",
   styleUrls: ["./reporte.page.scss"]
 })
+//Se declaran variables a utilizar en el reporte
 export class ReportePage implements OnInit {
   private favoritesService: FavoritesService;
   favoritesList$: Observable<UserInfo[]>;
@@ -49,6 +50,7 @@ export class ReportePage implements OnInit {
     this.favoritesService = _favoritesService;
   }
 
+  //Se obtienen datos de la base de datos y se le asigna el valor a las variables
   ngOnInit() {
     this.ofauth.authState.subscribe(async data => {
       if (data && data.email && data.uid) {
@@ -177,6 +179,7 @@ export class ReportePage implements OnInit {
     });
   }
 
+  //Se crea un pdf con las variables
   makePdf() {
     var meses = [
       "Enero",

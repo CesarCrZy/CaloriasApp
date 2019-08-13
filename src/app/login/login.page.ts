@@ -19,6 +19,7 @@ export class LoginPage implements OnInit {
   ) {}
   user = {} as User;
 
+  //Funcion asincrona para comprobar las credenciales del usuario con la base de datos y redirigirlo
   async login(user: User) {
     try {
       const result = this.ofauth.auth.signInWithEmailAndPassword(
@@ -34,6 +35,7 @@ export class LoginPage implements OnInit {
     } catch (e) {}
   }
 
+  //Se declara el contenido de los campos de texto vacios
   ngOnInit() {
     $("#email").text("");
     $("#password").text("");

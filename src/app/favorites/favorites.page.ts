@@ -19,6 +19,8 @@ import { Table } from "../modelos/table";
   templateUrl: "./favorites.page.html",
   styleUrls: ["./favorites.page.scss"]
 })
+
+//Se declaran propiedades del modulo
 export class FavoritesPage implements OnInit {
   private favoritesService: FavoritesService;
   favoritesList$: Observable<Comida[]>;
@@ -49,6 +51,7 @@ export class FavoritesPage implements OnInit {
     this.favoritesService = _favoritesService;
   }
 
+  //Al iniciar se obtienen datos de las comidas
   ngOnInit() {
     this.ofauth.authState.subscribe(async data => {
       if (data && data.email && data.uid) {
@@ -73,6 +76,7 @@ export class FavoritesPage implements OnInit {
     this.navCtrl.navigateForward("/favorites-modal");
   }
 
+  //Se guardan datos de la comida en la base de datos
   OnSave(comida: Comida) {
     if (typeof comida.key === "undefined") {
       try {

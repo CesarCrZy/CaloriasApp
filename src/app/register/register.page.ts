@@ -13,6 +13,7 @@ export class RegisterPage implements OnInit {
 
   constructor(private ofauth: AngularFireAuth, public navCtrl: NavController) {}
 
+  //Se crea un usuario en la base de datos y se redirige al login
   async register(user: User) {
     try {
       const result = await this.ofauth.auth.createUserWithEmailAndPassword(

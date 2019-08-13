@@ -16,6 +16,8 @@ import * as $ from "jquery";
   templateUrl: "./ingesta-recom.page.html",
   styleUrls: ["./ingesta-recom.page.scss"]
 })
+
+//Se declaran propiedades para exportar
 export class IngestaRecomPage implements OnInit {
   private favoritesService: FavoritesService;
   favoritesList$: Observable<Macros[]>;
@@ -46,6 +48,8 @@ export class IngestaRecomPage implements OnInit {
     });
   }
 
+  //Al iniciar la instancia se obtienen datos de la bd, se declaran propiedades para estos datos
+  //y se vinculan con elementos del DOM
   ngOnInit() {
     this.ofauth.authState.subscribe(async data => {
       if (data && data.email && data.uid) {

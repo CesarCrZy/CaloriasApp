@@ -32,45 +32,55 @@ export class FavoritesService {
 	  })
 
   }
+  //Se obtienen comidas de la base
   GetComidasUser(uid) {
 	this.comidaslist = this.db.list<Comida>('Comidas/' + this.id);
     return this.comidaslist;
 	}
-
+//Se borran comidas de la base
 	DeleteFavoriteAF(key: string){
 		return this.comidaslist.remove(key);
 	}
+//Se actualizan comidas de la base
 
 	UpdateFavoriteAF(key: string, restaurant: Comida){
 		return this.comidaslist.update(key, restaurant);
 	}
+//Se obtienen recomendaciones de la base
 
 	GetRecomdacion(uid){
 		this.usuariosmacros = this.db.list<Macros>('Usuarios/' + this.id + '/macronutrientes');
 		return this.usuariosmacros;
 	}
+//Se obtienen datos de ingesta de la base
 
 	GetIngesta(uid){
 		this.table = this.db.list<Table>('Usuarios/' + this.id + '/ingesta');
 		return this.table;
 	}
+//Se obtienen datos individuales de la ingesta de la base
 
 	GetIngesta1(uid){
 		return this.db.object('Usuarios/' + this.id + '/ingesta');
 	}
+	//Se agregan comidas a la base
+
 	AddFavoriteAF(restaurant: Comida, uid) {
 		this.comidaslist = this.db.list<Comida>('Comidas/' + uid );
 		return this.comidaslist.push(restaurant);
 	}
+//Se agrega informacion del usuario a la base
 
 	AddUserInfo(info: UserInfo, uid, email) {
 		this.usuariosinfo = this.db.list<UserInfo>('Usuarios/' + uid + '/informacion');
 		return this.usuariosinfo.push(info);
 	}
+//Se obtiene informacion del usuario de la base
 
 	GetUserInfo(uid){
 		return this.usuariosinfo = this.db.list<UserInfo>('Usuarios/' + uid + '/informacion');
 	}
+//Se agregan macros del usuario
 
 	AddUserMacros(macros: Macros, uid) {
 		this.usuariosmacros = this.db.list<Macros>('Usuarios/' + uid + '/macronutrientes');

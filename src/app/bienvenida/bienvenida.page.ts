@@ -12,6 +12,7 @@ export class BienvenidaPage implements OnInit {
     public navCtrl: NavController
   ) {}
 
+//Funcion asincrona para dirigir al usuario a una pagina dependiendo si es miembro nuevo
   async empezar() {
     const alert = await this.alertCtrl.create({
       header: "Bienvenido",
