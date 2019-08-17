@@ -88,7 +88,7 @@ export class RegisterInfoPage implements OnInit {
     this.userInfo.actividad = actividad;
   }
 
-  //Se insertan las propiedades que ingresa el usuario en la base de datos
+  //Se calculan los macronutrientes y se insertan las propiedades que ingresa el usuario en la base de datos
   Insertar(userInfo: UserInfoBD, table: Table, macros: Macros) {
     userInfo.email = this.email;
     this.userInfo.email = this.email;

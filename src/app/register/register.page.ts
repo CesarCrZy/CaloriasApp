@@ -1,7 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { User } from "../modelos/user";
 import { AngularFireAuth } from "angularfire2/auth";
-import { NavController, NavParams } from "@ionic/angular";
+import { NavController, NavParams, ToastController } from "@ionic/angular";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-register",
@@ -11,7 +12,12 @@ import { NavController, NavParams } from "@ionic/angular";
 export class RegisterPage implements OnInit {
   user = {} as User;
 
-  constructor(private ofauth: AngularFireAuth, public navCtrl: NavController) {}
+  constructor(
+    private ofauth: AngularFireAuth,
+    public navCtrl: NavController,
+    private routers: Router,
+    public toastController: ToastController
+  ) {}
 
   //Se crea un usuario en la base de datos y se redirige al login
   async register(user: User) {
@@ -21,11 +27,28 @@ export class RegisterPage implements OnInit {
         user.password
       );
       console.log(result);
-      this.navCtrl.navigateForward("/login");
+      if (result) {
+        this.routers.navigateByUrl("/login");
+      } else {
+        this.navCtrl.navigateForward("/register");
+        const toast = await this.toastController.create({
+          message: "Intentalo nuevamente",
+          duration: 2000
+        });
+        toast.present();
+      }
     } catch (e) {
-      console.error(e);
+      const toast = await this.toastController.create({
+        message: "Inserta tus datos para registrarte",
+        duration: 2000
+      });
+      toast.present();
     }
   }
 
   ngOnInit() {}
+
+  back() {
+    this.navCtrl.navigateForward("/login");
+  }
 }

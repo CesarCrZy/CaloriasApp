@@ -50,6 +50,7 @@ export class IngestaRecomPage implements OnInit {
 
   //Al iniciar la instancia se obtienen datos de la bd, se declaran propiedades para estos datos
   //y se vinculan con elementos del DOM
+  //ademas de que se actualizan las barras de profreso segun los datos de la BD
   ngOnInit() {
     this.ofauth.authState.subscribe(async data => {
       if (data && data.email && data.uid) {

@@ -72,6 +72,7 @@ export class FavoritesPage implements OnInit {
     });
   }
 
+  //Se abre una pagina para insertar datos de la comida
   async OnNew() {
     this.navCtrl.navigateForward("/favorites-modal");
   }

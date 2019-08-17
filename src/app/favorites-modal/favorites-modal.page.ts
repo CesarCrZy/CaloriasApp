@@ -67,6 +67,7 @@ export class FavoritesModalPage implements OnInit {
       );
   }
 
+  //Se guarda los datos de la comida y se actualiza la ingesta
   OnSave(comida: Comida) {
     this.db.database
       .ref("Usuarios/")
